@@ -1,0 +1,13 @@
+{
+	"eslint.validate": [
+		"javascript"
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+	},
+	"phpcs.enable": true,
+	"phpcs.standard": "WrodPress",
+	"phpcs.executablePath": "./vendor/bin/phpcs",
+	"phpcs.showWarnings": true,
+	"phpcs.composerJsonPath": "composer.json"
+}
