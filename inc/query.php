@@ -18,7 +18,7 @@
  * @param array    $args   An array of query arguments.
  * @param function $output A function for generating the html output of the query results.
  */
-function uwmemc_custom_query( $args, $output ) {
+function uwmemc_query( $args, $output ) {
 	$default_args = array(
 		'order'          => 'ASC',
 		'posts_per_page' => -1,
@@ -47,11 +47,11 @@ function uwmemc_custom_query( $args, $output ) {
  * taxonomy filtering by an optional array of allowed
  * taxonomy names.
  *
- * @param int    $post_id The post id.
+ * @param int    $post_id  The post id.
  * @param string $taxonomy The taxonomy name.
- * @param array  $allowed An array of allowed taxonomy terms.
+ * @param array  $allowed  An array of allowed taxonomy terms.
  */
-function uwmemc_custom_term_list( $post_id, $taxonomy, $allowed = array() ) {
+function uwmemc_term_list( $post_id, $taxonomy, $allowed = array() ) {
 	$terms = get_the_terms( $post_id, $taxonomy );
 
 	if ( ! $terms ) {
@@ -60,7 +60,11 @@ function uwmemc_custom_term_list( $post_id, $taxonomy, $allowed = array() ) {
 
 	$output = array_map(
 		function ( $term ) {
-			return $term->name;
+			// Remove positions with private visibility as determined by term meta value.
+			$visible = get_term_meta( $term->term_id, 'position_visibility', true );
+			if ( empty( $visible ) || 'true' === $visible ) {
+				return $term->name;
+			}
 		},
 		$terms
 	);

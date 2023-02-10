@@ -14,5 +14,33 @@ require_once 'inc/settings.php';
 /** Load custom query functions */
 require_once 'inc/query.php';
 
+/** Manage taxonomies */
+require_once 'inc/taxonomies.php';
+
 /** Register shortcodes */
 require_once 'inc/shortcodes/shortcodes.php';
+
+/**
+ * Disable automatic <p> tags
+ *
+ * Source: https://growthhackinginsights.com/how-to-disable-automatic-paragraph-tags-in-wordpress/
+ */
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
+/**
+ * Removes empty paragraph tags from shortcodes in WordPress.
+ *
+ * Source: https://thomasgriffin.com/how-to-remove-empty-paragraph-tags-from-shortcodes-in-wordpress/
+ *
+ * @param string $content The post content.
+ */
+function uwmemc_remove_empty_paragraph_tags_from_shortcodes( $content ) {
+	$to_fix = array(
+		'<p>['    => '[',
+		']</p>'   => ']',
+		']<br />' => ']',
+	);
+	return strtr( $content, $to_fix );
+}
+add_filter( 'the_content', 'uwmemc_remove_empty_paragraph_tags_from_shortcodes' );
