@@ -7,7 +7,8 @@ module.exports = {
 	},
 	extends: [ 'eslint:recommended', 'wordpress' ],
 	parserOptions: {
-		sourceType: 'module'
+		sourceType: 'module',
+		ecmaVersion: 2020 // custom (https://stackoverflow.com/questions/36001552/eslint-parsing-error-unexpected-token)
 	},
 	rules: {
 

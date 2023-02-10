@@ -21,7 +21,7 @@ const injectChanges = true;
 
 // >>>>> Style options.
 // Path to main .scss file.
-const styleSRC = './src/scss/styles.scss';
+const styleSRC = './src/scss/*.scss';
 
 // Path to place the compiled CSS file. Default set to root folder.
 const styleDestination = './assets/css/';
@@ -34,7 +34,7 @@ const precision = 10;
 // JS Vendor options.
 
 // Path to JS vendor folder.
-const jsVendorSRC = './src/js/vendor/*.js';
+const jsVendorSRC = './src/js/vendor/**/*.js';
 
 // Path to place the compiled JS vendors file.
 const jsVendorDestination = './assets/js/';
@@ -45,7 +45,7 @@ const jsVendorFile = 'vendor';
 // JS Custom options.
 
 // Path to JS custom scripts folder.
-const jsCustomSRC = './src/js/custom/*.js';
+const jsCustomSRC = './src/js/custom/custom.js';
 
 // Path to place the compiled JS custom scripts file.
 const jsCustomDestination = './assets/js/';
@@ -68,10 +68,10 @@ const imgDST = './assets/img/';
 const watchStyles = './src/scss/**/*.scss';
 
 // Path to all vendor JS files.
-const watchJsVendor = './src/js/vendor/*.js';
+const watchJsVendor = './src/js/vendor/**/*.js';
 
 // Path to all custom JS files.
-const watchJsCustom = './src/js/custom/*.js';
+const watchJsCustom = './src/js/custom/**/*.js';
 
 // Path to all PHP files.
 const watchPhp = './**/*.php';

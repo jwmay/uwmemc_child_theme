@@ -1,0 +1,41 @@
+////
+// Input addons base styles
+////
+.input-addons {
+	position: relative;
+
+	input {
+		// padding-right: 4rem !important; // @todo: input-addon-button not showing up on mobile
+
+		@include breakpoint('large') {
+			padding-right: 3.5rem !important;
+		}
+	}
+
+	div {
+		position: absolute;
+	}
+
+	.input-addon-badge {
+		background-color: $color-dark-gold;
+		border-radius: 100px;
+		color: $color-white;
+		font-size: 0.8rem;
+		min-width: 2rem;
+		padding: 0.4rem;
+		right: -1rem;
+		top: -1rem;
+	}
+
+	.input-addon-clear {
+		color: $color-light-gray;
+		cursor: pointer;
+		font-size: 2rem;
+		right: 1rem;
+		top: 0;
+
+		&:hover {
+			color: $color-purple;
+		}
+	}
+}

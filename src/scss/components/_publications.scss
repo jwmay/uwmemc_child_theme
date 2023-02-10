@@ -1,0 +1,63 @@
+////
+/// Publications styles
+////
+.pub-item {
+	margin-bottom: 2rem;
+
+	@include breakpoint('large') {
+		padding-left: 1rem;
+	}
+
+	.pub-authors {
+		font-size: 0.9rem;
+	}
+
+	.pub-book,
+	.pub-journal {
+		font-style: italic;
+	}
+
+	.pub-issue,
+	.pub-publisher,
+	.pub-status {
+		font-style: italic;
+	}
+
+	.pub-title {
+		a:hover {
+			color: $color-dark-gold;
+		}
+	}
+
+	.pub-year {
+		font-weight: bold;
+	}
+}
+
+.pub-list-empty {
+	color: $color-gold;
+	display: none;
+	font-size: 2rem;
+	font-style: italic;
+	padding: 3rem 0;
+	text-align: center;
+}
+
+.pub-search {
+	margin-bottom: 3rem;
+	text-align: center;
+	width: 100%;
+
+	@include breakpoint('large') {
+		width: 80%;
+	}
+
+}
+
+.pub-search-input {
+	display: block;
+	font-size: 1.2rem;
+	margin: 0 auto;
+	padding: 8px 16px;
+	width: 100%;
+}
