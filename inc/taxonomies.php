@@ -110,7 +110,7 @@ add_action( 'rg_position_edit_form_fields', 'edit_position_visibility_field', 10
  */
 function save_position_visibility( $term_id ) {
 
-	$nonce = isset( $_POST['_wpnonce_add-tag'] ) ? sanitize_text_field( wp_unslash( $_POST['wpnonce_add-tag'] ) ) : null; // phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+	$nonce = isset( $_POST['_wpnonce_add-tag'] ) ? sanitize_text_field( wp_unslash( $_POST['wpnonce_add-tag'] ) ) : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if ( ! isset( $nonce ) || ! wp_verify_nonce( $nonce ) ) {
 		return;
 	}

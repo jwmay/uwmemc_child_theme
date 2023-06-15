@@ -15,7 +15,7 @@ function uwmemc_instruments_loop( $technique ) {
 	$args = array(
 		'post_type' => 'rg_instrument',
 		'orderby'   => 'menu_order',
-		// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+		// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'rg_technique',
@@ -45,7 +45,7 @@ function uwmemc_instruments_loop( $technique ) {
 		);
 	};
 
-	return uwmemc_custom_query( $args, $output );
+	return uwmemc_query( $args, $output );
 }
 
 /**

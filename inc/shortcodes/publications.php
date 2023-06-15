@@ -10,19 +10,20 @@
  * type or for all types.
  *
  * @param number $count The number of publications to display.
+ * @param string $order The sort order as either ASC or DESC.
  * @param string $topic The name of a topic taxonomy to search.
  */
-function uwmemc_publication_loop( $count, $topic ) {
+function uwmemc_publication_loop( $count, $order, $topic ) {
 	$args = array(
 		'post_type'      => 'rg_publication',
 		'posts_per_page' => $count,
-		'order'          => 'DESC',
-		'orderby'        => array( 'meta_value_num', 'date' ),
-		'meta_key'       => '_rg_pub_year', // phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+		'order'          => $order,
+		'orderby'        => 'meta_value_num date',
+		'meta_key'       => '_rg_pub_year', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 	);
 
 	if ( ! empty( $topic ) ) {
-		// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+		// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 		$args['tax_query'] = array(
 			array(
 				'taxonomy' => 'rg_topic',
@@ -117,6 +118,7 @@ function uwmemc_publication_list_shortcode( $attr = array() ) {
 	$atts = shortcode_atts(
 		array(
 			'count'  => -1,
+			'order'  => 'DESC',
 			'search' => 'false',
 			'topic'  => '',
 		),
@@ -139,7 +141,7 @@ function uwmemc_publication_list_shortcode( $attr = array() ) {
 
 	$html .= '<div class="deck-empty pub-list-empty">Sorry, no publications matched your search</div>';
 	$html .= '<ol class="deck pub-list" reversed>';
-	$html .= uwmemc_publication_loop( $atts['count'], $atts['topic'] );
+	$html .= uwmemc_publication_loop( $atts['count'], $atts['order'], $atts['topic'] );
 	$html .= '</ol>';
 
 	return $html;

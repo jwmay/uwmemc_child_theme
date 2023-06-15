@@ -1,0 +1,90 @@
+.responsive-row {
+	flex-wrap: wrap !important;
+
+	@include breakpoint("medium") {
+		flex-wrap: nowrap !important;
+	}
+
+	.wp-block-group__inner-container {
+		height: 100% !important;
+	}
+}
+
+.row-container {
+	align-items: stretch !important;
+
+	.wp-block-group {
+		padding: 2vh 3vw;
+
+		@include breakpoint("medium") {
+			padding-bottom: 4vh;
+			padding-top: 4vh;
+		}
+
+		&:first-of-type {
+			@include breakpoint("medium") {
+				padding-left: 5vw;
+			}
+
+			@include breakpoint("large") {
+				padding-left: 10vw;
+			}
+		}
+
+		&:last-of-type {
+			margin-left: -1vw; // fix for gap between two divs (cause unknown)
+
+			@include breakpoint("medium") {
+				padding-right: 5vw;
+			}
+
+			@include breakpoint("large") {
+				padding-right: 10vw;
+			}
+		}
+
+		&.mw-10 {
+			min-width: 10%;
+		}
+
+		&.mw-20 {
+			min-width: 20%;
+		}
+
+		&.mw-30 {
+			min-width: 30%;
+		}
+
+		&.mw-40 {
+			min-width: 40%;
+		}
+
+		&.mw-50 {
+			min-width: 50%;
+		}
+
+		&.mw-60 {
+			min-width: 60%;
+		}
+
+		&.mw-70 {
+			min-width: 70%;
+		}
+
+		&.mw-80 {
+			min-width: 80%;
+		}
+
+		&.mw-90 {
+			min-width: 90%;
+		}
+
+		&.mw-100 {
+			min-width: 100%;
+		}
+	}
+}
+
+.row-stretch {
+	align-items: stretch !important;
+}

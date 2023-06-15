@@ -1,9 +1,17 @@
-@import './components/variables';
-@import './components/mixins';
+@import "./components/variables";
+@import "./components/mixins";
 
-@import './components/badge';
-@import './components/input-addons';
-@import './components/publications';
+@import "./components/badge";
+@import "./components/blocks";
+@import "./components/header";
+@import "./components/footer";
+@import "./components/carousel";
+@import "./components/input-addons";
+@import "./components/news";
+@import "./components/person";
+@import "./components/publications";
+@import "./components/shortcodes";
+@import "./components/twitter";
 
 a.btn {
 	color: inherit;
@@ -11,4 +19,28 @@ a.btn {
 
 .row .card {
 	height: 100%;
+}
+
+// For templates/template-notitle-fullwidth.php
+.full-width {
+	padding: 0;
+
+	article {
+		margin-top: 0;
+		padding-bottom: 0;
+
+		.entry-content {
+			margin-top: 0;
+		}
+	}
+
+	#primary {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+
+	.entry-content > * {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }

@@ -1,0 +1,12 @@
+// Styles for shortcode output from shortcodes/applications.php
+.application-info {
+	border-left: 4px solid $color-purple;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	margin: 32px 0;
+	padding: 16px;
+
+	&.application-closed {
+		border-left-color: $color-gold;
+	}
+}

@@ -1,9 +1,15 @@
 /// variables
 
 $breakpoints: (
-	'small': (min-width: 767px),
-	'medium': (min-width: 992px),
-	'large': (min-width: 1200px)
+	"small": (
+		min-width: 767px,
+	),
+	"medium": (
+		min-width: 992px,
+	),
+	"large": (
+		min-width: 1400px,
+	),
 ) !default;
 
 $color-black: #373a3c;
@@ -14,3 +20,7 @@ $color-light-gold: #e8e3d3;
 $color-light-gray: #c9c9c9;
 $color-purple: #4b2e83;
 $color-white: #ffffff;
+
+$site-logo-height-small: 60px;
+$site-logo-height-medium: 80px;
+$site-logo-height-large: 100px;
