@@ -6,7 +6,7 @@
 		"source.fixAll.eslint": true,
 	},
 	"phpcs.enable": true,
-	"phpcs.standard": "WrodPress",
+	"phpcs.standard": "WordPress",
 	"phpcs.executablePath": "./vendor/bin/phpcs",
 	"phpcs.showWarnings": true,
 	"phpcs.composerJsonPath": "composer.json"
