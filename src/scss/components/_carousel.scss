@@ -1,0 +1,35 @@
+// Fix for uw_theme carousel
+.carousel p {
+	margin-bottom: 0 !important;
+}
+
+// Responsive carousel with fixed min-height
+.carousel.responsive {
+	.carousel-indicators {
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 767px) {
+		max-height: 220px;
+
+		.carousel-inner {
+			max-height: inherit;
+
+			.carousel-item {
+				max-height: inherit;
+
+				a {
+					display: flex;
+					justify-content: center;
+					max-height: inherit;
+				}
+
+				img {
+					max-height: inherit;
+					max-width: none;
+					width: auto !important;
+				}
+			}
+		}
+	}
+}

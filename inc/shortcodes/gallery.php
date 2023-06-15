@@ -27,7 +27,8 @@
 function uwmemc_gallery_shortcode( $attr = array(), $content ) {
 	$atts = shortcode_atts(
 		array(
-			'id' => 'uwmemc_gallery',
+			'id'         => 'uwmemc_gallery',
+			'responsive' => false,
 		),
 		$attr,
 		'uwmemc_gallery'
@@ -88,7 +89,7 @@ function uwmemc_gallery_shortcode( $attr = array(), $content ) {
 	};
 
 	$html = '
-        <div id="%s" class="carousel slide" data-ride="carousel">
+        <div id="%s" class="carousel slide %s" data-ride="carousel">
             <ol class="carousel-indicators" style="margin-left: 15%%; padding-left: 0;">%s</ol>
             <div class="carousel-inner">%s</div>
             <a class="carousel-control-prev" type="button" data-target="#%s" data-slide="prev">
@@ -101,7 +102,7 @@ function uwmemc_gallery_shortcode( $attr = array(), $content ) {
         </div>
     ';
 
-	return sprintf( $html, $atts['id'], $indicators_html, $items_html, $atts['id'], $atts['id'] );
+	return sprintf( $html, $atts['id'], $atts['responsive'] ? 'responsive' : '', $indicators_html, $items_html, $atts['id'], $atts['id'] );
 }
 add_shortcode( 'uwmemc_gallery', 'uwmemc_gallery_shortcode' );
 
