@@ -1,0 +1,116 @@
+/**
+ * This file overrides styles set by the parent theme,
+ * thus it makes use of the !important flag to avoid
+ * writing hyper-specific selectors.
+ */
+#masthead {
+	height: 40px;
+	padding: 0 1vw;
+
+	.navbar {
+		align-items: normal;
+	}
+
+	.site-branding {
+		margin: 0;
+
+		img {
+			height: 40px;
+			vertical-align: baseline;
+		}
+	}
+
+	.uw-search {
+		height: 30px !important;
+		margin: 0 !important;
+		margin-top: 5px !important;
+		right: 0 !important;
+		width: 30px !important;
+
+		svg {
+			left: 3px !important;
+			top: 5px !important;
+		}
+	}
+
+	.main-navigation {
+		margin-top: 0px !important;
+	}
+}
+
+#main-navigation {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	margin: 0;
+
+	@include breakpoint("medium") {
+		flex-flow: row nowrap;
+		margin: 0 1vw;
+	}
+
+	@include breakpoint("large") {
+		margin: 0 10vw;
+	}
+
+	#site-logo {
+		height: $site-logo-height-small;
+		padding: 2px 0;
+		margin-left: 1vw;
+
+		@include breakpoint("medium") {
+			height: $site-logo-height-medium;
+			padding: 8px 0;
+		}
+
+		@include breakpoint("large") {
+			height: $site-logo-height-large;
+			margin-left: 0;
+		}
+	}
+
+	.navbar {
+		border: none;
+
+		@include breakpoint("small") {
+			margin: 0 auto;
+		}
+
+		@include breakpoint("medium") {
+			margin: 0;
+		}
+
+		li > a {
+			@include breakpoint("small") {
+				font-size: 15px !important;
+			}
+
+			@include breakpoint("medium") {
+				font-size: 17px !important;
+			}
+
+			@include breakpoint("large") {
+				font-size: 21px !important;
+			}
+		}
+
+		.navbar-toggler {
+			height: $site-logo-height-small;
+			top: -$site-logo-height-small;
+
+			&::before {
+				height: $site-logo-height-small;
+				left: -12px;
+				width: 24px;
+			}
+		}
+	}
+
+	.container-fluid {
+		padding: 0;
+	}
+}
+
+.uw-hero-image {
+	background-position: center;
+}
