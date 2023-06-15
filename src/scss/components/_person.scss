@@ -1,0 +1,40 @@
+.person {
+	display: flex;
+	flex-flow: column nowrap;
+
+	@include breakpoint("medium") {
+		flex-flow: row nowrap;
+	}
+
+	.person-left-panel {
+		min-width: 100%;
+		text-align: center;
+
+		@include breakpoint("medium") {
+			border-right: 1px solid $color-light-gray;
+			padding-right: 24px;
+			min-width: 50%;
+		}
+	}
+
+	.person-right-panel {
+		margin-top: 16px;
+
+		@include breakpoint("medium") {
+			margin-top: 0;
+			padding-left: 48px;
+		}
+	}
+
+	.person-image {
+		margin-bottom: 16px;
+	}
+
+	.person-title {
+		font-style: italic;
+	}
+
+	.person-links > div {
+		margin-bottom: 12px;
+	}
+}

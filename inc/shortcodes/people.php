@@ -81,8 +81,8 @@ function uwmemc_position_loop( $position, $tags ) {
 	$args = array(
 		'post_type' => 'rg_person',
 		'orderby'   => 'menu_order meta_value',
-		'meta_key'  => '_rg_person_last_name', // phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-		// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+		'meta_key'  => '_rg_person_last_name', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+		// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'rg_position',
