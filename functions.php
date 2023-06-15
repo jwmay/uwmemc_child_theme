@@ -20,6 +20,15 @@ require_once 'inc/taxonomies.php';
 /** Register shortcodes */
 require_once 'inc/shortcodes/shortcodes.php';
 
+/** Load sidebar functions */
+require_once 'inc/sidebar.php';
+
+/** Register theme settings */
+require_once 'inc/theme-settings.php';
+
+/** Register template functions */
+require_once 'inc/template-functions.php';
+
 /**
  * Disable automatic <p> tags
  *
