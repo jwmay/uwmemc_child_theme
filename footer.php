@@ -25,7 +25,7 @@
 				<img src="<?php echo get_theme_file_uri( 'assets/img/nsf-mrsec-logo.png' ); ?>">
 				<div class="disclaimer">
 					The University of Washington MRSEC is supported by the National Science Foundation
-					under NSF Award Number DMR-1719797. Any opinions, findings, conclusions or
+					under NSF Award Number DMR-2308979. Any opinions, findings, conclusions or
 					recommendations expressed in this material are those of the PI(s) and do not
 					necessarily reflect those of the National Science Foundation.
 				</div>
