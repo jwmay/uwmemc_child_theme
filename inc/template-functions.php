@@ -31,7 +31,11 @@ function uw_site_title() {
 	}
 
 	if ( get_option( 'page_for_posts', true ) && ( is_home() || is_single() || is_archive() || is_category() || is_tag() ) ) {
-		echo '<div class="' . esc_attr( $classes ) . '">' . esc_attr( POST_TYPE_PARENTS[ get_post_type() ] ) . '</div>';
+		if ( ! tribe_is_event_query() ) {
+			echo '<div class="' . esc_attr( $classes ) . '">' . esc_attr( POST_TYPE_PARENTS[ get_post_type() ] ) . '</div>';
+		} else {
+			echo '<div class="' . esc_attr( $classes ) . '">Calendar</div>';
+		}
 	} elseif ( is_page() ) {
 		echo '<div class="' . esc_attr( $classes ) . '">' . esc_attr( get_post_parent_title() ) . '</div>';
 	} else {
@@ -73,11 +77,12 @@ function uw_breadcrumbs() {
 
 	// If the current view is a post type other than page or attachment then the breadcrumbs will be taxonomies.
 	if ( is_category() || is_single() || is_post_type_archive() || is_tag() ) {
-
 		if ( is_post_type_archive() ) {
-			$posttype = get_post_type_object( get_post_type() );
-			// $html .=  '<li class="current"><a href="'  . get_post_type_archive_link( $posttype->query_var ) .'" title="'. $posttype->labels->menu_name .'">'. $posttype->labels->menu_name  . '</a>';
-			$html .= '<li class="current"><span>' . $posttype->labels->menu_name . '</span>';
+			if ( ! tribe_is_event_query() ) { // Added for child theme.
+				$posttype = get_post_type_object( get_post_type() );
+				// $html .=  '<li class="current"><a href="'  . get_post_type_archive_link( $posttype->query_var ) .'" title="'. $posttype->labels->menu_name .'">'. $posttype->labels->menu_name  . '</a>';
+				$html .= '<li class="current"><span>' . $posttype->labels->menu_name . '</span>';
+			} // Added for child theme.
 		}
 
 		if ( is_category() ) {
@@ -107,11 +112,15 @@ function uw_breadcrumbs() {
 				$category = array_shift( $thecat );
 				$html    .= '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . get_cat_name( $category->term_id ) . ' ">' . get_cat_name( $category->term_id ) . '</a>';
 			}
-			// check if is Custom Post Type.
+			// Check if is Custom Post Type.
 			if ( ! is_singular( array( 'page', 'attachment', 'post' ) ) ) {
 				// $posttype = get_post_type_object( get_post_type() );  // Not used.
-				$parent = POST_TYPE_PARENTS[ get_post_type() ]; // Added for child theme.
-				$html  .= '<li><a href="' . home_url( strtolower( $parent ) ) . '" title="' . $parent . '">' . $parent . '</a>'; // Updated for child theme.
+				if ( ! tribe_is_event_query() ) { // Added for child theme and The Events Calendar plugin.
+					$parent = POST_TYPE_PARENTS[ get_post_type() ]; // Added for child theme.
+					$html  .= '<li><a href="' . home_url( strtolower( $parent ) ) . '" title="' . $parent . '">' . $parent . '</a>'; // Updated for child theme.
+				} else { // Added for child theme.
+					$html .= '<li><a href="' . home_url( 'calendar' ) . '" title="Calendar">Calendar</a></li>'; // Updated for child theme.
+				} // Added for child theme.
 			}
 
 			$html .= '<li class="current"><span>' . get_the_title( $post->ID ) . '</span>';

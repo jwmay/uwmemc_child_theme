@@ -17,6 +17,8 @@ if ( is_page() ) {
 	if ( array_key_exists( get_post_type(), POST_TYPE_PARENTS ) ) {
 		$parent_page_id = get_page_id_by_title( POST_TYPE_PARENTS[ get_post_type() ] );
 		$image_url      = get_the_post_thumbnail_url( $parent_page_id );
+	} elseif ( tribe_is_event_query() ) {
+		$image_url = get_the_post_thumbnail_url( get_page_id_by_title( 'News' ) );
 	} else {
 		$image_url = get_header_image();
 	}
