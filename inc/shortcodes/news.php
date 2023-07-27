@@ -18,20 +18,20 @@ function uwmemc_news_loop( $count, $order ) {
 	);
 
 	$output = function() {
-		$html = '<li class="media">';
+		$html  = '<div class="col-xs-12 col-md-6 col-lg-3">';
+		$html .= '<div class="card">';
 
 		if ( has_post_thumbnail() ) {
-			$html .= '<img src="' . get_the_post_thumbnail_url() . '">';
+			$html .= '<img class="card-img-top" src="' . get_the_post_thumbnail_url() . '">';
 		} else {
-			$html .= '<img src="' . get_theme_file_uri( 'assets/img/placeholder.png' ) . '">';
+			$html .= '<img class="card-img-top" src="' . get_theme_file_uri( 'assets/img/placeholder.png' ) . '">';
 		}
 
-		$html .= '<div class="media-body">';
-		$html .= '<h4 class="mt-0 mb-2">';
-		$html .= '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
-		$html .= '</h4>';
-		$html .= '</div>';
-		$html .= '</li>';
+		$html .= '<div class="card-body">';
+		$html .= '<h5><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h5>';
+		$html .= '<p>' . get_the_excerpt() . '</p>';
+		$html .= '<p class="read-more"><a href="' . get_the_permalink() . '">Read more</a></p>';
+		$html .= '</div></div></div>';
 
 		return $html;
 	};
@@ -54,9 +54,10 @@ function uwmemc_news_list_shortcode( $attr = array() ) {
 		'uwmemc_news_list'
 	);
 
-	$html  = '<ul class="news-shortcode">';
+	$html  = '<div class="news-shortcode container">';
+	$html .= '<div class="row">';
 	$html .= uwmemc_news_loop( $atts['count'], $atts['order'] );
-	$html .= '</ul>';
+	$html .= '</div></div>';
 
 	return $html;
 }
