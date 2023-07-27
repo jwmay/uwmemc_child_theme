@@ -53,3 +53,13 @@ function uwmemc_remove_empty_paragraph_tags_from_shortcodes( $content ) {
 	return strtr( $content, $to_fix );
 }
 add_filter( 'the_content', 'uwmemc_remove_empty_paragraph_tags_from_shortcodes' );
+
+/**
+ * Sets the excerpt length.
+ *
+ * @param number $length The excerpt length in words.
+ */
+function uwmemc_custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'uwmemc_custom_excerpt_length', 999 );
