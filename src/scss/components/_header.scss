@@ -49,10 +49,6 @@
 		margin: 0 1vw;
 	}
 
-	@include breakpoint("large") {
-		margin: 0 10vw;
-	}
-
 	#site-logo {
 		height: $site-logo-height-small;
 		padding: 2px 0;
