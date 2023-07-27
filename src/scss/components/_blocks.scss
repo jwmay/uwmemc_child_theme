@@ -1,3 +1,13 @@
+// Fix for links with purple background
+.has-white-color a {
+	color: var(--wp--preset--color--white) !important;
+
+	&:hover {
+		color: $color-gold !important;
+		text-decoration: none;
+	}
+}
+
 .responsive-row {
 	flex-wrap: wrap !important;
 
