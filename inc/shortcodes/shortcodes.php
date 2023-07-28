@@ -14,6 +14,8 @@ require_once 'gallery.php';
 
 require_once 'instruments.php';
 
+require_once 'jumbotron.php';
+
 require_once 'news.php';
 
 require_once 'people.php';
