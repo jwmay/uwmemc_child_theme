@@ -1,6 +1,7 @@
 .badge-wrap{text-align:left;white-space:normal}
 .has-white-color a{color:var(--wp--preset--color--white) !important}
 .has-white-color a:hover{color:#b7a57a !important;text-decoration:none}
+.container{margin-left:auto !important;margin-right:auto !important}
 .responsive-row{-ms-flex-wrap:wrap !important;flex-wrap:wrap !important}
 .responsive-row .wp-block-group__inner-container{height:100% !important}
 .row-container{-webkit-box-align:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}
@@ -49,6 +50,14 @@
 .input-addons .input-addon-badge{background-color:#85754d;border-radius:100px;color:#fff;font-size:.8rem;min-width:2rem;padding:.4rem;right:-1rem;top:-1rem}
 .input-addons .input-addon-clear{color:#c9c9c9;cursor:pointer;font-size:2rem;right:1rem;top:0}
 .input-addons .input-addon-clear:hover{color:#4b2e83}
+.jumbotron .w-60{background:rgba(85,52,151,0.8) !important}
+.jumbotron .subtitle{font-size:2rem;margin-bottom:16px !important;text-transform:uppercase}
+.jumbotron .cols{-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
+.jumbotron .cols div{padding:24px;text-align:center}
+.jumbotron .cols div:first-of-type{border-right:4px solid #b7a57a}
+.jumbotron .cols div:last-of-type{border-left:4px solid #b7a57a}
+.jumbotron a{color:#fff}
+.jumbotron a:hover{color:#b7a57a;text-decoration:none}
 .news-shortcode{max-width:100%}
 .news-shortcode .card{height:auto !important}
 .news-shortcode h5>a{color:#4b2e83}

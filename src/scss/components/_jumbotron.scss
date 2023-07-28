@@ -1,0 +1,40 @@
+.jumbotron {
+	.w-60 {
+		background: rgba(85, 52, 151, 0.8) !important;
+	}
+
+	.subtitle {
+		font-size: 2rem;
+		margin-bottom: 16px !important;
+		text-transform: uppercase;
+	}
+
+	.cols {
+		align-items: stretch;
+		color: $color-white;
+		display: flex;
+		flex-flow: row nowrap;
+
+		& div {
+			padding: 24px;
+			text-align: center;
+
+			&:first-of-type {
+				border-right: 4px solid $color-gold;
+			}
+
+			&:last-of-type {
+				border-left: 4px solid $color-gold;
+			}
+		}
+	}
+
+	a {
+		color: $color-white;
+
+		&:hover {
+			color: $color-gold;
+			text-decoration: none;
+		}
+	}
+}
