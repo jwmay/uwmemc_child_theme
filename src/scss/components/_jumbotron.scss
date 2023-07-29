@@ -10,21 +10,38 @@
 	}
 
 	.cols {
-		align-items: stretch;
 		color: $color-white;
-		display: flex;
-		flex-flow: row nowrap;
+
+		@include breakpoint("medium") {
+			align-items: stretch;
+			display: flex;
+			flex-flow: row nowrap;
+		}
 
 		& div {
 			padding: 24px;
 			text-align: center;
 
+			@include breakpoint("medium") {
+				width: calc(100% / 3);
+			}
+
 			&:first-of-type {
-				border-right: 4px solid $color-gold;
+				border-bottom: 4px solid $color-gold;
+
+				@include breakpoint("medium") {
+					border-bottom: none;
+					border-right: 4px solid $color-gold;
+				}
 			}
 
 			&:last-of-type {
-				border-left: 4px solid $color-gold;
+				border-top: 4px solid $color-gold;
+
+				@include breakpoint("medium") {
+					border-top: none;
+					border-left: 4px solid $color-gold;
+				}
 			}
 		}
 	}

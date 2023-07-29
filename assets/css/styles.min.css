@@ -52,14 +52,14 @@
 .input-addons .input-addon-clear:hover{color:#4b2e83}
 .jumbotron .w-60{background:rgba(85,52,151,0.8) !important}
 .jumbotron .subtitle{font-size:2rem;margin-bottom:16px !important;text-transform:uppercase}
-.jumbotron .cols{-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
+.jumbotron .cols{color:#fff}
 .jumbotron .cols div{padding:24px;text-align:center}
-.jumbotron .cols div:first-of-type{border-right:4px solid #b7a57a}
-.jumbotron .cols div:last-of-type{border-left:4px solid #b7a57a}
+.jumbotron .cols div:first-of-type{border-bottom:4px solid #b7a57a}
+.jumbotron .cols div:last-of-type{border-top:4px solid #b7a57a}
 .jumbotron a{color:#fff}
 .jumbotron a:hover{color:#b7a57a;text-decoration:none}
 .news-shortcode{max-width:100%}
-.news-shortcode .card{height:auto !important}
+.news-shortcode .card{background-color:transparent;height:auto !important}
 .news-shortcode h5>a{color:#4b2e83}
 .news-shortcode h5>a:hover{color:#85754d;text-decoration:underline}
 .news-shortcode .read-more{margin-bottom:0}
@@ -105,6 +105,10 @@ a.btn{color:inherit}
 #main-navigation #site-logo{height:80px;padding:8px 0}
 #main-navigation .navbar{margin:0}
 #main-navigation .navbar li>a{font-size:17px !important}
+.jumbotron .cols{-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
+.jumbotron .cols div{width:calc(100% / 3)}
+.jumbotron .cols div:first-of-type{border-bottom:0;border-right:4px solid #b7a57a}
+.jumbotron .cols div:last-of-type{border-top:0;border-left:4px solid #b7a57a}
 .person{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
 .person .person-left-panel{border-right:1px solid #c9c9c9;padding-right:24px;min-width:50%}
 .person .person-right-panel{margin-top:0;padding-left:48px}
