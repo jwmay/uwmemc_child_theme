@@ -18,7 +18,7 @@ function uwmemc_news_loop( $count, $order ) {
 	);
 
 	$output = function() {
-		$html  = '<div class="col-xs-12 col-md-6 col-lg-3">';
+		$html  = '<div class="col-xs-12 col-md-6 col-lg-4">';
 		$html .= '<div class="card">';
 
 		if ( has_post_thumbnail() ) {
@@ -29,6 +29,7 @@ function uwmemc_news_loop( $count, $order ) {
 
 		$html .= '<div class="card-body">';
 		$html .= '<h5><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h5>';
+		$html .= '<h6><em>' . get_the_date() . '</em></h6>';
 		$html .= '<p>' . get_the_excerpt() . '</p>';
 		$html .= '<p class="read-more"><a href="' . get_the_permalink() . '">Read more</a></p>';
 		$html .= '</div></div></div>';
