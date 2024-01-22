@@ -18,7 +18,7 @@ function uwmemc_person_output( $tags ) {
 	$departments = implode(
 		array_map(
 			function( $department ) {
-				return sprintf( '<span class="badge badge-primary badge-wrap mr-1">%s</span>', $department );
+				return sprintf( '<span class="badge badge-primary badge-wrap">%s</span>', $department );
 			},
 			uwmemc_term_list( $post_id, 'rg_department' )
 		)
@@ -37,8 +37,8 @@ function uwmemc_person_output( $tags ) {
 					'IRG 2 Co-Lead' => 'secondary',
 					'MEM-Seed'      => 'info',
 				);
-				$color              = array_key_exists( $position, $position_color_map ) ? $position_color_map[ $position ] : 'light';
-				return sprintf( '<span class="badge badge-%s badge-wrap mr-1">%s</span>', $color, $position );
+				$color              = array_key_exists( $position, $position_color_map ) ? $position_color_map[ $position ] : 'dark';
+				return sprintf( '<span class="badge badge-%s badge-wrap">%s</span>', $color, $position );
 			},
 			uwmemc_term_list( $post_id, 'rg_position', $tags )
 		)

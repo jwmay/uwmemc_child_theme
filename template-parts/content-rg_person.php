@@ -10,25 +10,11 @@
 $person_id        = get_the_id();
 $person_post_type = new Research_Group_Person_Post_Type();
 $person           = (object) $person_post_type->get_post_meta( $person_id );
-$departments      = get_the_terms( $person_id, 'rg_department' );
 
-$is_irg_1         = has_term( array( 'IRG 1', 'IRG 1 Lead', 'IRG 1 Co-Lead' ), 'rg_position' );
-$is_irg_1_lead    = has_term( 'IRG 1 Lead', 'rg_position' );
-$is_irg_1_co_lead = has_term( 'IRG 1 Co-Lead', 'rg_position' );
-
-$is_irg_2         = has_term( array( 'IRG 2', 'IRG 2 Lead', 'IRG 2 Co-Lead' ), 'rg_position' );
-$is_irg_2_lead    = has_term( 'IRG 2 Lead', 'rg_position' );
-$is_irg_2_co_lead = has_term( 'IRG 2 Co-Lead', 'rg_position' );
-
-$is_memseed    = has_term( 'MEM-Seed', 'rg_position' );
-$is_superseed  = has_term( 'SuperSeed', 'rg_position' );
-$is_affiliated = has_term( 'Affiliated Faculty', 'rg_position' );
-$is_postdoc    = has_term( 'Postdoctoral Researcher', 'rg_position' );
-
-$has_titles   = ! empty( $person->person_titles );
 $has_email    = ! empty( $person->person_email );
-$has_website  = ! empty( $person->person_website );
 $has_research = ! empty( $person->person_research );
+$has_titles   = ! empty( $person->person_titles );
+$has_website  = ! empty( $person->person_website );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -41,7 +27,7 @@ $has_research = ! empty( $person->person_research );
 			<div class="person">
 				<div class="person-left-panel">
 					<?php
-					// if the post has a featured image, display the featured image.
+					// If the post has a featured image, display the featured image.
 					if ( has_post_thumbnail() ) {
 						echo '<div class="person-image">';
 						the_post_thumbnail();
@@ -50,7 +36,7 @@ $has_research = ! empty( $person->person_research );
 					?>
 					<div class="person-details">
 						<?php
-							// Display the member's title, if specified.
+						// Display the member's title, if specified.
 						if ( $has_titles ) :
 							echo '<p class="person-title">' . $person->person_titles . '</p>';
 						endif;
@@ -58,68 +44,37 @@ $has_research = ! empty( $person->person_research );
 
 						<p class="person-tags">
 							<?php
-							// Display IRG 1, if selected.
-							if ( $is_irg_1 ) :
-								$label = 'IRG 1';
-								echo '<span class="badge badge-warning badge-wrap mr-1">' . $label . '</span>';
-
-								if ( $is_irg_1_lead ) {
-									$label .= ' Lead';
-								}
-								if ( $is_irg_1_co_lead ) {
-									$label .= ' Co-Lead';
-								}
-								if ( $is_irg_1_lead || $is_irg_1_co_lead ) {
-									echo '<span class="badge badge-secondary badge-wrap mr-1">' . $label . '</span>';
-								}
-							endif;
-
-							// Display IRG 2, if selected.
-							if ( $is_irg_2 ) :
-								$label = 'IRG 2';
-								echo '<span class="badge badge-success badge-wrap mr-1">' . $label . '</span>';
-
-								if ( $is_irg_2_lead ) {
-									$label .= ' Lead';
-								}
-								if ( $is_irg_2_co_lead ) {
-									$label .= ' Co-Lead';
-								}
-								if ( $is_irg_2_lead || $is_irg_2_co_lead ) {
-									echo '<span class="badge badge-secondary badge-wrap mr-1">' . $label . '</span>';
-								}
-							endif;
-
-							// Display Affiliated Faculty, if selected.
-							if ( $is_affiliated ) :
-								$label = 'Affiliated Faculty';
-								echo '<span class="badge badge-dark badge-wrap mr-1">' . $label . '</span>';
-							endif;
-
-							// Display Postdoctoral Researcher, if selected.
-							if ( $is_postdoc ) :
-								$label = 'Postdoctoral Researcher';
-								echo '<span class="badge badge-wrap mr-1">' . $label . '</span>';
-							endif;
-
-							// Display MEM-Seed, if selected.
-							if ( $is_memseed ) :
-								$label = 'MEM-Seed';
-								echo '<span class="badge badge-info badge-wrap mr-1">' . $label . '</span>';
-							endif;
-
-							// Display SuperSeed, if selected.
-							if ( $is_superseed ) :
-								$label = 'SuperSeed';
-								echo '<span class="badge badge-info badge-wrap mr-1">' . $label . '</span>';
-							endif;
-
 							// Display department(s).
-							if ( $departments ) :
-								foreach ( $departments as $department ) :
-									echo '<span class="badge badge-primary badge-wrap mr-1">' . $department->name . '</span>';
-							endforeach;
-							endif;
+							echo implode(
+								array_map(
+									function( $department ) {
+										return sprintf( '<span class="badge badge-primary badge-wrap">%s</span>', $department );
+									},
+									uwmemc_term_list( $person_id, 'rg_department' )
+								)
+							);
+
+
+							// Display position(s).
+							echo implode(
+								array_map(
+									function( $position ) {
+										$position_color_map = array(
+											'Faculty'    => 'dark',
+											'IRG 1'      => 'warning',
+											'IRG 1 Lead' => 'secondary',
+											'IRG 1 Co-Lead' => 'secondary',
+											'IRG 2'      => 'success',
+											'IRG 2 Lead' => 'secondary',
+											'IRG 2 Co-Lead' => 'secondary',
+											'MEM-Seed'   => 'info',
+										);
+										$color              = array_key_exists( $position, $position_color_map ) ? $position_color_map[ $position ] : 'dark';
+										return sprintf( '<span class="badge badge-%s badge-wrap">%s</span>', $color, $position );
+									},
+									uwmemc_term_list( $person_id, 'rg_position' )
+								)
+							);
 							?>
 						</p>
 

@@ -1,6 +1,17 @@
 ////
 /// Badge
 ////
+.badge {
+	font-size: 80%;
+	font-weight: 600;
+	margin: 2px;
+	padding: 8px;
+
+	&.badge-warning {
+		color: $color-white;
+	}
+}
+
 .badge-wrap {
 	text-align: left;
 	white-space: normal;

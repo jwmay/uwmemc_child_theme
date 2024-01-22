@@ -1,3 +1,5 @@
+.badge{font-size:80%;font-weight:600;margin:2px;padding:8px}
+.badge.badge-warning{color:#fff}
 .badge-wrap{text-align:left;white-space:normal}
 .has-white-color a{color:var(--wp--preset--color--white) !important}
 .has-white-color a:hover{color:#b7a57a !important;text-decoration:none}

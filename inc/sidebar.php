@@ -5,7 +5,7 @@
  * @param boolean $mobile Flag for mobile display type.
  */
 function uw_list_pages( $mobile = false ) {
-	global $UW;
+	 global $UW;
 	global $post;
 
 	if ( ! isset( $post ) ) {
@@ -19,7 +19,7 @@ function uw_list_pages( $mobile = false ) {
 			'post_parent' => $post->ID,
 			'post_status' => 'publish',
 		)
-	) && $parent->ID === $post->ID ) {
+	) && $parent->ID == $post->ID ) {
 		return;
 	}
 
@@ -29,7 +29,7 @@ function uw_list_pages( $mobile = false ) {
 	$siblings = get_pages(
 		array(
 			'parent'    => $parent->post_parent,
-			'post_type' => 'page', // @todo: changing to 'rg_person' does not work
+			'post_type' => 'page',
 			'exclude'   => $parent->ID,
 		)
 	);
