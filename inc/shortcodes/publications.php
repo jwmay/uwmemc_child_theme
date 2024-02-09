@@ -117,10 +117,11 @@ function uwmemc_publication_loop( $count, $order, $topic ) {
 function uwmemc_publication_list_shortcode( $attr = array() ) {
 	$atts = shortcode_atts(
 		array(
-			'count'  => -1,
-			'order'  => 'DESC',
-			'search' => 'false',
-			'topic'  => '',
+			'count'    => -1,
+			'gscholar' => '',
+			'order'    => 'DESC',
+			'search'   => 'false',
+			'topic'    => '',
 		),
 		$attr,
 		'uwmemc_publication_list'
@@ -135,7 +136,9 @@ function uwmemc_publication_list_shortcode( $attr = array() ) {
 		$html .= '<div class="input-addon-clear" title="clear search"><i class="far fa-times-circle"></i></div>';
 		$html .= '<div class="deck-count-badge input-addon-badge">0</div>';
 		$html .= '</div>';
-		$html .= '<a href="https://scholar.google.com/citations?hl=en&user=h0OhmtoAAAAJ&view_op=list_works&gmla=AJsN-F70MYWLcktPNdQ_jlsYEgX_ZELLE0Y0HQIFZnPYR4hkuXZELnVFqV90v3dhtF2mr9XIl94vRrlhQZmeFvKWKYDAGjKcohCM83bluoeUO4_RHBsJPg8" target="_blank">View our publications on Google Scholar</a>';
+		if ( '' !== $atts['gscholar'] ) {
+			$html .= '<a href="' . $atts['gscholar'] . '" target="_blank">View our publications on Google Scholar</a>';
+		}
 		$html .= '</div>';
 	}
 
