@@ -36,11 +36,11 @@
 			<div class="h4" id="social_preface">Connect with us:</div>
 			<nav aria-labelledby="social_preface">
 				<ul class="footer-social">
-					<li><a class="twitter" href="https://twitter.com/uwmemc/">Twitter</a></li>
-					<li><a class="youtube" href="https://www.youtube.com/channel/UCR06IU0FJgxmXS0PzJw7OiQ">YouTube</a></li>
+					<!-- <li><a class="twitter" href="https://twitter.com/uwmemc/">Twitter</a></li> -->
+					<!-- <li><a class="youtube" href="https://www.youtube.com/channel/UCR06IU0FJgxmXS0PzJw7OiQ">YouTube</a></li> -->
 					<!-- <li><a class="facebook" href="https://www.facebook.com/UofWA">Facebook</a></li> -->
-					<li><a class="instagram" href="https://www.instagram.com/uwmemc/">Instagram</a></li>
-					<!-- <li><a class="linkedin" href="https://www.linkedin.com/company/university-of-washington">LinkedIn</a></li> -->
+					<!-- <li><a class="instagram" href="https://www.instagram.com/uwmemc/">Instagram</a></li> -->
+					<li><a class="linkedin" href="https://www.linkedin.com/company/uw-mem-c">LinkedIn</a></li>
 					<!-- <li><a class="pinterest" href="https://www.pinterest.com/uofwa/">Pinterest</a></li> -->
 				</ul>
 			</nav>
